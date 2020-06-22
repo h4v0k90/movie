@@ -2,7 +2,11 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
+<<<<<<< HEAD
     <value-preview-text-wrapping value="true" />
+=======
+    <value-preview-text-wrapping value="false" />
+>>>>>>> Initial commit
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -23,12 +27,16 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
+<<<<<<< HEAD
     <loaded-nodes>
       <connection connection-id="afed634e-35df-4dbb-be5b-11f543d66072">
         <schema name="pg_catalog" object-types="function" />
         <schema name="public" object-types="constraint, column, table, dataset trigger, function, index, view, sequence" />
       </connection>
     </loaded-nodes>
+=======
+    <loaded-nodes />
+>>>>>>> Initial commit
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="afed634e-35df-4dbb-be5b-11f543d66072">

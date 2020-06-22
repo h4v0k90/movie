@@ -1,6 +1,11 @@
 from django.db import models
 from datetime import date
 
+<<<<<<< HEAD
+=======
+from django.urls import reverse
+
+>>>>>>> Initial commit
 
 class Category(models.Model):
     """Категории"""
@@ -67,6 +72,15 @@ class Movie(models.Model):
     def __str__(self):
         return self.title
 
+<<<<<<< HEAD
+=======
+    def get_absolute_url(self):
+        return reverse("movie_detail", kwargs={"slug": self.url})  # Для правильного адреса(url) для movie_detail
+
+    def get_review(self):
+        return self.reviews_set.filter(parent__isnull=True)
+
+>>>>>>> Initial commit
     class Meta:
         verbose_name = "Фильм"
         verbose_name_plural = "Фильмы"
