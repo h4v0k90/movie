@@ -37,9 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+    'filebrowser',
     'ckeditor',
     'ckeditor_uploader',
     'movies',
+    'allauth',
+    'allauth.account',
+
 ]
 
 MIDDLEWARE = [
@@ -50,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'movie.urls'
@@ -87,6 +94,11 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -120,7 +132,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_REDIRECT_URL = '/'
 
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -169,15 +186,16 @@ CKEDITOR_CONFIGS = {
                 'Preview',
                 'Maximize',
                 'Youtube',
+                'Video',
 
             ]},
         ],
         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
         # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
-        # 'height': 291,
-        # 'width': '100%',
-        # 'filebrowserWindowHeight': 725,
-        # 'filebrowserWindowWidth': 940,
+         'height': 291,
+        #'width': '100%',
+        'filebrowserWindowHeight': 725,
+        'filebrowserWindowWidth': 940,
         # 'toolbarCanCollapse': True,
         # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
         'tabSpaces': 4,
@@ -196,7 +214,10 @@ CKEDITOR_CONFIGS = {
             'dialog',
             'dialogui',
             'elementspath',
-            'youtube'
+            'youtube',
+            'video'
         ]),
     }
 }
+
+SITE_ID = 1
